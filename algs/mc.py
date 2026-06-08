@@ -1,7 +1,7 @@
 import numpy as np
 import bisect
 
-from helper import compute_distances
+from algs.helper import compute_distances
 
 
 def shapley_mc(

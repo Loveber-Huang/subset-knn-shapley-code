@@ -1,6 +1,6 @@
 import numpy as np
 from baseline import knn_shapley_JW
-from helper import compute_distances
+from algs.helper import compute_distances
 import time
 
 

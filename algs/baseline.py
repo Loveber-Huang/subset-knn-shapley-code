@@ -1,7 +1,7 @@
 import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.metrics import f1_score, roc_auc_score, average_precision_score
-from helper import compute_distances
+from algs.helper import compute_distances
 
 
 def kmeans_f1score(value_array, cluster=False):
