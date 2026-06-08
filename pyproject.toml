@@ -1,5 +1,5 @@
 [project]
-name = "subset-knn-shapley-exp"
+name = "subset-knn-shapley-code"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
