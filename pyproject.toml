@@ -1,0 +1,25 @@
+[project]
+name = "subset-knn-shapley-exp"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "black>=25.11.0",
+    "distributed>=2026.1.2",
+    "faiss-cpu>=1.13.2",
+    "ipykernel>=7.1.0",
+    "jinja2>=3.1.6",
+    "line-profiler>=5.0.0",
+    "matplotlib>=3.7.5",
+    "numpy>=1.26.4",
+    "opendataval>=1.2.1",
+    "pandas>=2.3.3",
+    "pydvl>=0.10.0",
+    "pytest>=9.0.2",
+    "scikit-learn>=1.8.0",
+    "scipy>=1.17.0",
+    "tqdm>=4.67.2",
+    "valda>=0.1.10",
+    "zarr>=3.1.5",
+]
