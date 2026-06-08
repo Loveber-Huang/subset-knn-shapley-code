@@ -5,7 +5,7 @@ This library provides efficient algorithms for data valuation in machine learnin
 
 Main methods:
 - `cod_subshap`: Inc-CkNN values
-- `shapley_mc``: Monte Carlo Subset-kNN-Shapley values
+- `shapley_mc`: Monte Carlo Subset-kNN-Shapley values
 
 
 ## Installation
