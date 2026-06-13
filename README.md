@@ -13,6 +13,35 @@ Main methods:
 See `pyproject.toml` for dependencies.
 We recommend using `uv` to install a local environment.
 
+### Setup with uv
+
+Install `uv` if it is not already available:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+Create the virtual environment and install all dependencies declared in `pyproject.toml`:
+
+```bash
+uv sync
+```
+
+Activate the environment:
+
+```bash
+source .venv/bin/activate
+```
+
+## Run tests with pytest
+
+Run the test file with `pytest` from the project root:
+
+```bash
+pytest tests/test_all.py
+```
+
+
 
 ## Quick Start
 
@@ -24,7 +53,7 @@ from sklearn.datasets import make_classification
 # Import methods
 from algs.conditional_shapley import cod_subshap, build_faiss_index
 from algs.mc import shapley_mc
-from algs.baseline import  knn_shapley_JW
+from algs.baseline import knn_shapley_JW
 
 # Generate sample data
 X, y = make_classification(
@@ -54,23 +83,23 @@ ann_N = 150
 print("Computing different value types...")
 
 # 1. Inc-CkNN-E values
-Inc-CkNN-E, _=cod_subshap(
+Inc_CkNN_E, _=cod_subshap(
     X_train_norm, y_train, X_test_norm, y_test, k, b, F
 )
-print(f"Inc-CkNN-E values: {Inc-CkNN-E[:5]}")
+print(f"Inc-CkNN-E values: {Inc_CkNN_E[:5]}")
 
 # 2. Inc-CkNN-Apx values  
-Inc-CkNN-Apx, _=cod_subshap(
+Inc_CkNN_Apx, _=cod_subshap(
     X_train_norm, y_train, X_test_norm, y_test, k, b, F, n_top
 )
-print(f"Inc-CkNN-Apx values: {Inc-CkNN-Apx[:5]}")
+print(f"Inc-CkNN-Apx values: {Inc_CkNN_Apx[:5]}")
 
 # 3. Inc-CkNN-ANN values
 ann_index = build_faiss_index(X_train_norm)
-Inc-CkNN-ANN, _=cod_subshap(
+Inc_CkNN_ANN, _=cod_subshap(
     X_train_norm, y_train, X_test_norm, y_test, k, b, F, n_top, ann_index, ann_N
 )
-print(f"Inc-CkNN-ANN values: {Inc-CkNN-ANN[:5]}")
+print(f"Inc-CkNN-ANN values: {Inc_CkNN_ANN[:5]}")
 
 # 4. Monte Carlo subset-knn-shapley approximation
 subset_knn_shapley_mc = shapley_mc(
@@ -80,7 +109,7 @@ print(f"MC subset-knn-shapley values: {subset_knn_shapley_mc[:5]}")
 
 # 5. knn-shapely values
 knn_shapley = knn_shapley_JW(
-     X_train_norm, y_train, X_test_norm, y_test,, k
+     X_train_norm, y_train, X_test_norm, y_test, k
 )
 print(f"knn-shapley values: {knn_shapley[:5]}")   
 ```
